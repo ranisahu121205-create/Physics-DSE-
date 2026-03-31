@@ -1,42 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Physics Math Helper</title>
-    <style>
-        body {font-family: Arial, sans-serif; margin: 20px;}
-        h1 {color: #333;}
-        /* Add more styles as needed */
-    </style>
+    <title>Physics Math Helper PRO</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <h1>Physics Math Helper</h1>
-    <div id="content">
-        <h2>Calculus</h2>
-        <p>Content related to calculus.</p>
-        <h2>Differential Equations</h2>
-        <p>Content related to differential equations.</p>
-        <h2>Probability</h2>
-        <p>Content related to probability.</p>
-        <h2>Dirac Delta Functions</h2>
-        <p>Content related to Dirac delta functions.</p>
-        <h2>Interactive Quiz</h2>
-        <div id="quiz">
-            <h3>Quiz Section</h3>
-            <p>Answer questions to test your knowledge!</p>
-            <!-- Add quiz questions and options here -->
-            <button id="submitQuiz">Submit Quiz</button>
-        </div>
-    </div>
+    <header>
+        <h1>Physics Math Helper PRO</h1>
+        <button id="darkModeToggle">Toggle Dark Mode</button>
+    </header>
+    <main>
+        <section id="calculator">
+            <h2>Calculator</h2>
+            <input type="text" id="calcInput" placeholder="Enter your equation here">
+            <button id="calculateBtn">Calculate</button>
+            <div id="calcResult"></div>
+        </section>
+        <section id="differentialEquations">
+            <h2>Differential Equations Solver</h2>
+            <input type="text" id="diffEqInput" placeholder="Enter DE here">
+            <button id="solveDiffEqBtn">Solve</button>
+            <div id="diffEqResult"></div>
+        </section>
+        <section id="probability">
+            <h2>Probability Calculator</h2>
+            <input type="text" id="probInput" placeholder="Enter probability statement">
+            <button id="calculateProbBtn">Calculate</button>
+            <div id="probResult"></div>
+        </section>
+        <section id="diracDeltaFunctions">
+            <h2>Dirac Delta Functions</h2>
+            <input type="text" id="diracInput" placeholder="Enter Dirac delta function">
+            <button id="evaluateDiracBtn">Evaluate</button>
+            <div id="diracResult"></div>
+        </section>
+        <section id="quiz">
+            <h2>Quiz System</h2>
+            <button id="startQuizBtn">Start Quiz</button>
+            <div id="quizContainer"></div>
+        </section>
+        <section id="progressTracking">
+            <h2>Progress Tracking</h2>
+            <div id="progressBar"></div>
+        </section>
+    </main>
+    <script src="script.js"></script>
     <script>
-        // Check if localStorage is available
-        if (typeof(Storage) !== 'undefined') {
-            console.log('localStorage is available!');
-            // Add interactivity and data handling here
-        } else {
-            alert('Sorry, your browser does not support local storage.');
-        }
+        // Dark Mode Toggle
+        document.getElementById('darkModeToggle').onclick = function() {
+            document.body.classList.toggle('dark-mode');
+        };
+        
+        // Local Storage Example
+        window.onload = function() {
+            const savedProgress = localStorage.getItem('progress');
+            if (savedProgress) {
+                document.getElementById('progressBar').style.width = savedProgress + '%';
+            }
+        };
     </script>
 </body>
 </html>
